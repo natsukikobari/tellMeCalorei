@@ -1,46 +1,53 @@
 'use strict';
 
 //callback関数必要!!
-//カロリーを返す関数
-exports.returnCalorie = function (message){
+//カロリーを返す関数\
 
+function search(connection, message) {
+    return new Promise(resolve => {
+
+        // SQL文
+        let sql = "SELECT * from calories WHERE foodName = ?";
+
+        // データベースから検索
+        connection.query(sql, message, (error, results, fields) => {
+            //存在しなかった時のエラー処理
+            if (results[0] == null) {
+                console.log(message + 'のデータがありません。');
+            } else {
+                resolve(results[0].calorie) //ここで変数カロリーに代入
+                console.log(message + 'のカロリーは' + results[0].calorie + 'です。');
+            }
+
+        })
+
+    })
+}
+
+async function returnCalorie(message) {
     //カロリー
-    var calorie = 10;
+    let calorie = 0;
 
     // MySQLにアクセス
     let mysql = require('mysql');
-    let connection = mysql.createConnection(
-        {
-        host : 'localhost',
-        user : 'takuya',
-        password : '0000',
+    let connection = mysql.createConnection({
+        host: 'localhost',
+        user: 'akito-FB',
+        password: 'abc',
         //port : 3000,
-        database: 'test'
-        }
-    );
+        database: 'tellMeCalories'
+    });
 
     //MySQLに接続
     connection.connect();
 
-    // SQL文
-    let sql = "SELECT * from foods WHERE name = ?";
+    const result = await search(connection, message);
 
-    // データベースから検索
-    var result = connection.query(sql, message, (error, results, fields) => {
-        //存在しなかった時のエラー処理
-        if(results[0] == null){
-            console.log(message+'のデータがありません。');
-        }
-        else {
-            calorie = results[0].calorie;//ここで変数カロリーに代入
-            console.log(message+'のカロリーは'+calorie+'gです。');
-        }
-
-     });
-     
-    console.log(result.results);
     //MySQLの接続解除
     connection.end();
-    //カロリーを返す
-    return calorie;
+
+    console.log(result);
 }
+
+
+returnCalorie('オムライス');
