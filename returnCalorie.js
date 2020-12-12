@@ -1,45 +1,46 @@
 'use strict';
 
-//料理のカロリーを返す
-class returnCalorie {
+//callback関数必要!!
+//カロリーを返す関数
+exports.returnCalorie = function (message){
 
-    //カロリーを返す関数
-    returnCalorie(message) {
+    //カロリー
+    var calorie = 10;
 
-        //カロリー
-        let calorie = 10;
+    // MySQLにアクセス
+    let mysql = require('mysql');
+    let connection = mysql.createConnection(
+        {
+        host : 'localhost',
+        user : 'takuya',
+        password : '0000',
+        //port : 3000,
+        database: 'test'
+        }
+    );
 
-        // MySQLにアクセス
-        let mysql = require('mysql');
-        let connection = mysql.createConnection({
-            host: 'localhost',
-            user: 'akito-FB',
-            password: 'abc',
-            database: 'tellMeCalories'
-        });
+    //MySQLに接続
+    connection.connect();
 
-        //MySQLに接続
-        connection.connect();
+    // SQL文
+    let sql = "SELECT * from foods WHERE name = ?";
 
-        // SQL文
-        let sql = "SELECT * from calories WHERE foodName = ?";
+    // データベースから検索
+    var result = connection.query(sql, message, (error, results, fields) => {
+        存在しなかった時のエラー処理
+        if(results[0] == null){
+            console.log(message+'のデータがありません。');
+        }
+        else {
+            calorie = results[0].calorie;//ここで変数カロリーに代入
+            console.log(message+'のカロリーは'+calorie+'gです。');
+        }
 
-        // データベースから検索
-        connection.query(sql, message, (error, results, fields) => {
-            //ここで変数カロリーに代入
-            calorie = results[0].calorie;
-            console.log('calorieは' + calorie);
-            //存在しなかった時のエラー処理
-        });
-
-        //MySQLの接続解除
-        connection.end();
-
-        //カロリーを返す
-        return calorie;
-    }
-
+     });
+     
+    console.log(result.results);
+    //MySQLの接続解除
+    connection.end();
+    //カロリーを返す
+    return calorie;
 }
-
-//カロリークラスをエクスポート
-module.exports = returnCalorie;
