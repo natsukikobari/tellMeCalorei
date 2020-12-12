@@ -27,7 +27,7 @@ exports.returnCalorie = function (message){
 
     // データベースから検索
     var result = connection.query(sql, message, (error, results, fields) => {
-        存在しなかった時のエラー処理
+        //存在しなかった時のエラー処理
         if(results[0] == null){
             console.log(message+'のデータがありません。');
         }
