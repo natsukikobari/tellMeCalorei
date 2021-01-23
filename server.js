@@ -28,6 +28,8 @@ app.post('/callback', line.middleware(config), (req, res) => {
         });
 });
 
+app.get('/bodyweight', (req, res) => res.send('Hello LINE BOT!(GET)'));
+
 // event handler
 function handleEvent(event) {
     if (event.type !== 'message' || event.message.type !== 'text') {
