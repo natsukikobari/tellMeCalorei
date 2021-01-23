@@ -1,20 +1,24 @@
 {
-    "name": "mylinebot",
-    "version": "1.0.0",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node server.js"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "@line/bot-sdk": "^7.1.0",
-        "express": "^4.17.1",
-        "mysql": "^2.18.1",
-        "ngrok": "^3.3.0"
-    },
-    "devDependencies": {},
-    "description": ""
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AkitoNakamuraO/test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AkitoNakamuraO/test/issues"
+  },
+  "homepage": "https://github.com/AkitoNakamuraO/test#readme",
+  "dependencies": {
+    "@line/bot-sdk": "^7.2.0",
+    "express": "^4.17.1"
+  }
 }
