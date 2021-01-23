@@ -28,7 +28,8 @@ app.post('/callback', line.middleware(config), (req, res) => {
         });
 });
 
-app.get('/bodyweight', (req, res) => res.send('Hello LINE BOT!(GET)'));
+const test = require('./test');
+app.use('/bodyweight', test);
 
 // event handler
 function handleEvent(event) {
