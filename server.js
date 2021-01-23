@@ -28,8 +28,9 @@ app.post('/callback', line.middleware(config), (req, res) => {
         });
 });
 
-const test = require('./test.html');
-app.use('/bodyweight', test);
+app.get('/bodyweight', function(req, res) {
+    res.sendFile('./test.html');
+});
 
 // event handler
 function handleEvent(event) {
