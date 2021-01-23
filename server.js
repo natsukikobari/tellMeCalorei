@@ -29,7 +29,7 @@ app.post('/callback', line.middleware(config), (req, res) => {
 });
 
 app.get('/bodyweight', (req, res) => {
-    res.sendFile('./index.html');
+    res.sendFile('tellMeCalorei/index.html');
 });
 
 // event handler
