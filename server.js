@@ -29,7 +29,7 @@ app.post('/callback', line.middleware(config), (req, res) => {
 });
 
 app.get('/bodyweight', function(req, res) {
-    res.sendFile('./test.html');
+    res.sendFile('/test.html');
 });
 
 // event handler
