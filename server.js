@@ -28,7 +28,7 @@ app.post('/callback', line.middleware(config), (req, res) => {
         });
 });
 
-const test = require('./test');
+const test = require('./test.html');
 app.use('/bodyweight', test);
 
 // event handler
