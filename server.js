@@ -28,8 +28,8 @@ app.post('/callback', line.middleware(config), (req, res) => {
         });
 });
 
-app.get('/bodyweight', function(req, res) {
-    res.sendFile('./test.html');
+app.get('/bodyweight', (req, res) => {
+    res.sendFile('./index.html');
 });
 
 // event handler
