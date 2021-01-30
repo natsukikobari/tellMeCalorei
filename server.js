@@ -69,7 +69,7 @@ async function handleEvent(event) {
         const year = now.getFullYear();
         const month = now.getMonth();
         const date = now.getDate();
-        const today = `"${year}"-"${month}"-"${date}"`;
+        const today = `${year}-${month}-${date}`;
         const userId = event.source.userId;
         console.log(weight);
         console.log(today);
