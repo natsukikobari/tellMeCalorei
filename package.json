@@ -19,6 +19,7 @@
   "homepage": "https://github.com/AkitoNakamuraO/test#readme",
   "dependencies": {
     "@line/bot-sdk": "^7.2.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
   }
 }
