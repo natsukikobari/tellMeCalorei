@@ -11,6 +11,7 @@
     "license": "ISC",
     "dependencies": {
         "@line/bot-sdk": "^7.1.0",
+        "chart.js": "^2.9.4",
         "express": "^4.17.1",
         "mysql": "^2.18.1",
         "ngrok": "^3.3.0"
