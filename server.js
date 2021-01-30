@@ -63,7 +63,8 @@ async function handleEvent(event) {
     }
 
     //今日の体重を登録する処理
-    {
+    if (!(isNaN(event.message.text))) {
+
         const weight = event.message.text;
         const now = new Date();
         const year = now.getFullYear();
@@ -76,6 +77,7 @@ async function handleEvent(event) {
 
         await connectionDB(sql);
     }
+
 
     // create a echoing text message
     const echo = { type: 'text', text: event.message.text };
