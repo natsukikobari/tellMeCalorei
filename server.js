@@ -80,11 +80,10 @@ async function handleEvent(event) {
 
     //ユーザーの体重一覧を表示
     if (event.message.text = '体重表') {
+        const userId = event.source.userId;
+        const sql = `SELECT * FROM weights WHERE user_id = ${userId}`;
+        const result = await connectionDB(sql);
         app.get('/bodyweight', (req, res) => {
-            const userId = event.source.userId;
-            const sql = `SELECT * FROM weights WHERE user_id = ${userId}`;
-
-            const result = await connectionDB(sql);
             res.send(result);
         });
     }
