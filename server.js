@@ -70,11 +70,10 @@ async function handleEvent(event) {
         console.log(weight);
         console.log(date);
         console.log(userId);
-        const sql = `INSERT INTO weights(weight, date, user_id) valu("${weight}", "${date}", "${userId}")`;
+        const sql = `INSERT INTO weights(weight, date, user_id) valu("${weight}", "2021-01-30 00:00:00", "${userId}")`;
         console.log(sql);
 
         await connectionDB(sql);
-        console.log('end');
     }
 
     // create a echoing text message
