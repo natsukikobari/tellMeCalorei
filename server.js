@@ -74,6 +74,7 @@ async function handleEvent(event) {
         console.log(sql);
 
         await connectionDB(sql);
+        console.log('end');
     }
 
     // create a echoing text message
