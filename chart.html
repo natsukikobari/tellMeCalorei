@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+　<title>グラフ</title> 
+</head>
+<body>
+  <h1>体重推移グラフ</h1>
+  <canvas id="myLineChart"></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+
+  <script>
+  var ctx = document.getElementById("myLineChart");
+  var myLineChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['8月1日', '8月2日', '8月3日', '8月4日', '8月5日', '8月6日', '8月7日'],
+      datasets: [
+        {
+          label: '体重(kg）',
+          data: [35, 34, 37, 35, 34, 35, 34, 25],
+          borderColor: "rgba(255,0,0,1)",
+          backgroundColor: "rgba(0,0,0,0)"
+        },
+      ],
+    },
+    options: {
+      title: {
+        display: false,//タイトル非表示
+        text: '体重'
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            suggestedMax: 40,//max値
+            suggestedMin: 30,//min値
+            stepSize: 1,
+            callback: function(value, index, values){//軸のラベル
+              return  value +  'kg'
+            }
+          }
+        }]
+      },
+    }
+  });
+  </script>
+</body>
+
+</html>
