@@ -41,7 +41,7 @@ function connectionDB(sql) {
         const connection = mysql.createConnection({
             host: 'us-cdbr-east-03.cleardb.com',
             user: 'bd9a43b372dd3b',
-            password: '7b231c8',
+            password: '97b231c8',
             database: 'heroku_165e150e33124a9'
         });
         // 接続
@@ -52,7 +52,6 @@ function connectionDB(sql) {
         });
         // 接続終了
         connection.end();
-        console.log('conection end');
     });
 }
 
@@ -71,7 +70,7 @@ async function handleEvent(event) {
         console.log(weight);
         console.log(date);
         console.log(userId);
-        const sql = `INSERT INTO weights(weight, date, user_id) valu("${weight}", "2021-01-30 00:00:00", "${userId}")`;
+        const sql = `INSERT INTO weights(weight, date, user_id) valuse("${weight}", "2021-01-30 00:00:00", "${userId}")`;
         console.log(sql);
 
         await connectionDB(sql);
