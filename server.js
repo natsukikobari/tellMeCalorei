@@ -41,7 +41,7 @@ function connectionDB(sql) {
         const connection = mysql.createConnection({
             host: 'us-cdbr-east-03.cleardb.com',
             user: 'bd9a43b372dd3b',
-            password: '97b231c8',
+            password: '7b231c8',
             database: 'heroku_165e150e33124a9'
         });
         // 接続
@@ -52,6 +52,7 @@ function connectionDB(sql) {
         });
         // 接続終了
         connection.end();
+        console.log('conection end');
     });
 }
 
