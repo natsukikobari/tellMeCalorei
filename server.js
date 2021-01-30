@@ -32,6 +32,29 @@ app.get('/bodyweight', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
 
+//DBを操作する関数
+function connectionDB(sql) {
+    return new Promise(resolve => {
+        // requireの設定
+        const mysql = require('mysql');
+        // MySQLとのコネクションの作成
+        const connection = mysql.createConnection({
+            host: 'us-cdbr-east-03.cleardb.com',
+            user: 'bd9a43b372dd3b',
+            password: '97b231c8',
+            database: 'heroku_165e150e33124a9'
+        });
+        // 接続
+        connection.connect();
+        //DB操作
+        connection.query(sql, function(err, rows, fields) {
+            resolve(rows);
+        });
+        // 接続終了
+        connection.end();
+    });
+}
+
 // event handler
 function handleEvent(event) {
     if (event.type !== 'message' || event.message.type !== 'text') {
