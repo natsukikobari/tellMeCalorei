@@ -62,6 +62,18 @@ function handleEvent(event) {
         return Promise.resolve(null);
     }
 
+    //今日の体重を登録する処理
+    {
+        const weight = event.message.text;
+        const date = new Date();
+        const userId = event.source.userId;
+        console.log(weight);
+        console.log(date);
+        console.log(userId);
+        const sql = `INSERT INTO weights(weight, date, user_id) valu("${weight}", "${date}", "${userId}")`;
+        console.log(sql);
+    }
+
     // create a echoing text message
     const echo = { type: 'text', text: event.message.text };
 
