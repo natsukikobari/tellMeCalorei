@@ -32,6 +32,16 @@ app.get('/bodyweight', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
 
+//ユーザーの体重一覧を表示
+app.get('/weightchart', (req, res) => {
+    const userId = event.source.userId;
+    const sql = `SELECT * FROM weights WHERE user_id = ${userId}`;
+    const result = await connectionDB(sql);
+    console.log(result);
+    res.send(result);
+});
+
+
 //DBを操作する関数
 function connectionDB(sql) {
     return new Promise(resolve => {
@@ -76,16 +86,6 @@ async function handleEvent(event) {
         const sql = `INSERT INTO weights(weight, date, user_id) VALUES("${weight}", "${today}", "${userId}")`;
 
         await connectionDB(sql);
-    }
-
-    //ユーザーの体重一覧を表示
-    if (event.message.text = '体重表') {
-        const userId = event.source.userId;
-        const sql = `SELECT * FROM weights WHERE user_id = ${userId}`;
-        const result = await connectionDB(sql);
-        app.get('/bodyweight', (req, res) => {
-            res.send(result);
-        });
     }
 
     // create a echoing text message
