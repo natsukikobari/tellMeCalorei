@@ -67,11 +67,10 @@ function handleEvent(event) {
         const weight = event.message.text;
         const date = new Date();
         const userId = event.source.userId;
-        console.log(weight);
-        console.log(date);
-        console.log(userId);
+
         const sql = `INSERT INTO weights(weight, date, user_id) valu("${weight}", "${date}", "${userId}")`;
-        console.log(sql);
+
+        connectionDB(sql);
     }
 
     // create a echoing text message
