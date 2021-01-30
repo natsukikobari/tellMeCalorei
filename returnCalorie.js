@@ -1,6 +1,5 @@
 'use strict';
 
-//callback関数必要!!
 //カロリーを返す関数\
 
 function search(connection, message) {
