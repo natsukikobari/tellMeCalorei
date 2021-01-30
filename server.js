@@ -56,7 +56,7 @@ function connectionDB(sql) {
 }
 
 // event handler
-function handleEvent(event) {
+async function handleEvent(event) {
     if (event.type !== 'message' || event.message.type !== 'text') {
         // ignore non-text-message event
         return Promise.resolve(null);
@@ -70,7 +70,7 @@ function handleEvent(event) {
 
         const sql = `INSERT INTO weights(weight, date, user_id) valu("${weight}", "${date}", "${userId}")`;
 
-        connectionDB(sql);
+        await connectionDB(sql);
     }
 
     // create a echoing text message
