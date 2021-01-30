@@ -34,8 +34,7 @@ app.get('/bodyweight', (req, res) => {
 
 //ユーザーの体重一覧を表示
 app.get('/weightchart', async(req, res) => {
-    const userId = event.source.userId;
-    const sql = `SELECT * FROM weights WHERE user_id = ${userId}`;
+    const sql = `SELECT * FROM weights`;
     const result = await connectionDB(sql);
     console.log(result);
     res.send(result);
