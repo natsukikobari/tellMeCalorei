@@ -70,7 +70,7 @@ async function handleEvent(event) {
         console.log(weight);
         console.log(date);
         console.log(userId);
-        const sql = `INSERT INTO weights(weight, date, user_id) values("${weight}", "${date}", "${userId}")`;
+        const sql = `INSERT INTO weights(weight, date, user_id) VALUES("${weight}", "${date}", "${userId}")`;
         console.log(sql);
 
         await connectionDB(sql);
