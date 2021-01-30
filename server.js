@@ -65,12 +65,16 @@ async function handleEvent(event) {
     //今日の体重を登録する処理
     {
         const weight = event.message.text;
-        const date = new Date();
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = now.getMonth();
+        const date = now.getDate();
+        const today = `"${year}"-"${month}"-"${date}"`;
         const userId = event.source.userId;
         console.log(weight);
-        console.log(date);
+        console.log(today);
         console.log(userId);
-        const sql = `INSERT INTO weights(weight, date, user_id) VALUES("${weight}", "${date}", "${userId}")`;
+        const sql = `INSERT INTO weights(weight, date, user_id) VALUES("${weight}", "${today}", "${userId}")`;
         console.log(sql);
 
         await connectionDB(sql);
