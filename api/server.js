@@ -40,7 +40,7 @@ async function handleEvent(event) {
 
     return client.replyMessage(event.replyToken /*メッセージを送信した人のアドレス*/ , {
         type: 'text',
-        text: 'デプロイできています。'
+        text: 'デプロイできています。2'
     } /*返す値*/ );
 }
 

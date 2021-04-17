@@ -15,11 +15,15 @@ async function returnCalorie(message) {
     return new Promise((resolve, reject) => {
         try {
             connection = mysql.createConnection({
-                host: 'localhost',
-                user: 'akito-FB',
-                password: 'abc',
+                //host: 'localhost',
+                host: 'us-cdbr-east-03.cleardb.com',
+                //user: 'akito-FB',
+                user: 'b8d38b6229689b',
+                //password: 'abc',
+                password: '90c6fdf8',
                 //port : 3000,
-                database: 'tellMeCalories'
+                //database: 'tellMeCalories'
+                database: 'heroku_91a0951754ecaf2'
             });
 
             //MySQLに接続
