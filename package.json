@@ -10,12 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@line/bot-sdk": "^7.1.0",
+    "@line/bot-sdk": "^7.3.0",
     "express": "^4.17.1",
     "mysql": "^2.18.1",
     "ngrok": "^3.3.0"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/natsukikobari/tellMeCalorei.git"
